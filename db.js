@@ -1,38 +1,17 @@
-export const video_db = [
-    {
-        id:3213,
-        title:'video awesome',
-        description:'This is something I love',
-        views: 24,
-        src: "video/test.avi",
-        creator: {
-            id: 121212,
-            name: 'Daeuk',
-            email: 'dheodnr318@naver.com'
-        }
-    },
-    {
-        id:3213,
-        title:'video awesome',
-        description:'This is something I love',
-        views: 24,
-        src: "video/test.avi",
-        creator: {
-            id: 121212,
-            name: 'Daeuk',
-            email: 'dheodnr318@naver.com'
-        }
-    },
-    {
-        id:3213,
-        title:'video awesome',
-        description:'This is something I love',
-        views: 24,
-        src: "video/test.avi",
-        creator: {
-            id: 121212,
-            name: 'Daeuk',
-            email: 'dheodnr318@naver.com'
-        }
-    }
-]
+import mongoose from "mongoose"
+
+
+mongoose.connect("mongodb://localhost/wetube", {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("Connected to DB");
+
+const handleError = (error) => console.log(`Error on DB Connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);
