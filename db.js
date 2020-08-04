@@ -1,11 +1,12 @@
-import mongoose from "mongoose"
-import dotenv from "dotenv"
-dotenv.config()
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+
+dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
