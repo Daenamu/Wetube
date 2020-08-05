@@ -6,4 +6,5 @@ block content
             input(type="text", value=`${video.title}`, placeholder="Title", name='title', required=true)
             textarea(name="description", placeholder="Description", required=true)=video.description
             input(type="submit", value="Edit Video")
-        a.form-container__link.form-container__link--delete(href=routes.deleteVideo(video.id)) Delete video
+        a.form-container__link.form-container__link--delete(href=routes.deleteVideo(video.id))
+            button.delete Delete video
