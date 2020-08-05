@@ -5,6 +5,10 @@ const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
 
+// Github
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 // users
 const USERS = "/users";
 const USER_DETAIL = "/:id";
@@ -23,6 +27,8 @@ const routes = {
   join: JOIN,
   login: LOGIN,
   logout: LOGOUT,
+  github: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
   search: SEARCH,
   users: USERS,
   userDetail: (id) => {

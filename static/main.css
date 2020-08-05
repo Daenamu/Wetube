@@ -178,6 +178,8 @@ button {
   border: none;
   background-color: #3498db;
   color: white; }
+  button a:link, button a:visited {
+    color: white; }
 
 button.delete {
   background-color: #bb2f2a; }
