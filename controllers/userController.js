@@ -38,6 +38,7 @@ export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
+    // eslint-disable-next-line camelcase
     _json: { id, avatar_url, name, email },
   } = profile;
   try {
@@ -67,6 +68,11 @@ export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
 };
+
+export const getMe = (req, res) => {
+  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+};
+
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 export const userDetail = (req, res) =>
   res.render("userDetail", { pageTitle: "User Detail" });
