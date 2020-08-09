@@ -36,9 +36,10 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --ignore 'scss' --ignore 'static'",
     "dev:assets": "webpack --mode development -w",
-    "build:assets": "webpack --mode production"
+    "build:assets": "webpack --mode production",
+    "tunnel": "lt --port 4000"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
