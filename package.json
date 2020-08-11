@@ -6,8 +6,6 @@
   "author": "Daeuk",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/node": "^7.10.5",
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "autoprefixer": "^9.8.6",
@@ -40,18 +38,26 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --ignore 'scss' --ignore 'static'",
-    "dev:assets": "webpack --mode development -w",
-    "build:assets": "webpack --mode production",
-    "tunnel": "lt --port 4000"
+    "dev:server": "cd src && nodemon --exec babel-node init.js --ignore 'scss' --ignore 'src/static'",
+    "dev:assets": "cd src && webpack --mode development webpack -w",
+    "build:assets": "cd src && webpack --mode production webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets', 'src/static', 'src/webpack.config.js'",
+    "build": "npm run build:server && npm run build:assets && cp -R src/static build && cp -R src/views build",
+    "prebuild": "rm -rf build",
+    "tunnel": "lt --port 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "mini-css-extract-plugin": "^0.9.0",
     "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "webpack-node-externals": "^2.5.1"
   }
 }
